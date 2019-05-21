@@ -6,8 +6,16 @@ const SearchResultItem = (props) => {
 
 	return (
 		<li>
-			<a href={project_uri}>{name}</a>
-			{version} {downloads} {info}{' '}
+			<a href={project_uri} className="gem">
+				<span className="gem_info">
+					<h2 className="gem_name">
+						{name}
+						<span>{version}</span>
+					</h2>
+					<p>{info}</p>
+					{Number(downloads).toLocaleString('en')}
+				</span>
+			</a>
 			<button onClick={(e) => handleSaveChange(name, saved, e)}>
 				{saved ? 'Unsave' : 'Save'}
 			</button>

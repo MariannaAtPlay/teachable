@@ -1,0 +1,28 @@
+body {
+	background-color: #e9573f;
+}
+
+main {
+	margin-right: auto;
+	margin-left: auto;
+	width: 80%;
+	height: 100vh;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.gem {
+	padding: 2rem;
+	display: block;
+	border-bottom: 1px solid #c1c4ca;
+	text-decoration: none;
+	background-color: #fff;
+}
+
+.gem_name {
+	color: #141c22;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+}

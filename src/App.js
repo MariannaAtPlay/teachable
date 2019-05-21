@@ -90,7 +90,7 @@ class App extends Component {
 		const { query, searchResults, savedGems, localStorageAvailable } = this.state;
 
 		return (
-			<Fragment>
+			<main>
 				<label>
 					Search for Ruby Gems
 					<input
@@ -130,7 +130,7 @@ class App extends Component {
 				) : (
 					<h3>No results found</h3>
 				)}
-			</Fragment>
+			</main>
 		);
 	}
 }
