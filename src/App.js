@@ -12,17 +12,18 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-		try {
-			const savedGems = GemsAPI.get();
-			this.setState({
-				savedGems
+		GemsAPI.get()
+			.then((savedGems) => {
+				this.setState({
+					savedGems
+				});
+			})
+			.catch((reason) => {
+				this.setState({
+					localStorageAvailable: false
+				});
+				console.error(reason);
 			});
-		} catch (e) {
-			this.setState({
-				localStorageAvailable: false
-			});
-			console.error(e);
-		}
 	}
 
 	handleSaveChange = (name, saved) => {
@@ -31,7 +32,6 @@ class App extends Component {
 
 		if (!saved) {
 			//save
-			//add to state
 			updatedSavedGems = [...savedGems, name];
 		} else {
 			//unsave
@@ -39,20 +39,19 @@ class App extends Component {
 				return gem !== name;
 			});
 		}
-		console.log('savedGems', savedGems, 'updatedSavedGems', updatedSavedGems);
+
 		//save to state
 		this.setState({
 			savedGems: updatedSavedGems
 		});
+
 		//save to localStorage
-		try {
-			GemsAPI.save(updatedSavedGems);
-		} catch (error) {
+		GemsAPI.save(updatedSavedGems).catch((reason) => {
 			this.setState({
 				localStorageAvailable: false
 			});
-			console.error(error);
-		}
+			console.error(reason);
+		});
 	};
 
 	handleInputChange = (e) => {

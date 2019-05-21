@@ -19,19 +19,24 @@ export const search = (query) => {
 };
 
 export const get = () => {
-	if (storageAvailable('localStorage')) {
-		return JSON.parse(localStorage.getItem('myGems'));
-	} else {
-		throw new Error('Local Storage is Unavailable');
-	}
+	return new Promise((resolve, reject) => {
+		if (storageAvailable('localStorage')) {
+			resolve(JSON.parse(localStorage.getItem('myGems')));
+		} else {
+			reject('Local Storage is Unavailable');
+		}
+	});
 };
 
 export const save = (savedGems) => {
-	if (storageAvailable('localStorage')) {
-		localStorage.setItem('myGems', JSON.stringify(savedGems));
-	} else {
-		throw new Error('Unavailable');
-	}
+	return new Promise((resolve, reject) => {
+		if (storageAvailable('localStorage')) {
+			localStorage.setItem('myGems', JSON.stringify(savedGems));
+			resolve();
+		} else {
+			reject('Local Storage is Unavailable');
+		}
+	});
 };
 
 const storageAvailable = (type) => {
