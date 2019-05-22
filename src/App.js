@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as GemsAPI from './GemsAPI';
 import SearchGems from './SearchGems';
 import './App.css';
+import ListGems from './ListGems';
 
 class App extends Component {
 	state = {
@@ -54,7 +55,8 @@ class App extends Component {
 	render() {
 		const { savedGems } = this.state;
 
-		return <SearchGems savedGems={savedGems} handleSaveChange={this.handleSaveChange} />;
+		//return <SearchGems savedGems={savedGems} handleSaveChange={this.handleSaveChange} />;
+		return <ListGems gems={savedGems} handleSaveChange={this.handleSaveChange} />;
 	}
 }
 

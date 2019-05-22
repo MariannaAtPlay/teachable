@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import * as GemsAPI from './GemsAPI';
-import SearchResultItem from './SearchResultItem';
+import ListItem from './ListItem';
 
 class SearchGems extends Component {
 	state = {
@@ -75,7 +75,7 @@ class SearchGems extends Component {
 								});
 
 								return (
-									<SearchResultItem
+									<ListItem
 										gemInfo={gemInfo}
 										handleSaveChange={handleSaveChange}
 										saved={saved}
