@@ -26,17 +26,17 @@ class App extends Component {
 			});
 	}
 
-	handleSaveChange = (name, saved) => {
+	handleSaveChange = (gemInfo, saved) => {
 		const { savedGems } = this.state;
 		let updatedSavedGems;
 
 		if (!saved) {
 			//save
-			updatedSavedGems = [...savedGems, name];
+			updatedSavedGems = [...savedGems, gemInfo];
 		} else {
 			//unsave
-			updatedSavedGems = savedGems.filter((gem) => {
-				return gem !== name;
+			updatedSavedGems = savedGems.filter((currentGem) => {
+				return currentGem.name !== gemInfo.name;
 			});
 		}
 
@@ -72,7 +72,7 @@ class App extends Component {
 					const { query } = this.state;
 					//if there are no results, or by the time callback is executed,
 					//the search field has been cleared, reset searchResults
-					if (!data.length || query === '') {
+					if ((data && !data.length) || query === '') {
 						this.setState({
 							searchResults: []
 						});
@@ -114,7 +114,9 @@ class App extends Component {
 						<h3>Search Results</h3>
 						<ul>
 							{searchResults.map((gemInfo) => {
-								const saved = savedGems.includes(gemInfo.name);
+								const saved = savedGems.some((currentGem) => {
+									return currentGem.name === gemInfo.name;
+								});
 
 								return (
 									<SearchResultItem

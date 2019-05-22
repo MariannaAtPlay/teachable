@@ -16,7 +16,7 @@ const SearchResultItem = (props) => {
 					{Number(downloads).toLocaleString('en')}
 				</span>
 			</a>
-			<button onClick={(e) => handleSaveChange(name, saved, e)}>
+			<button onClick={(e) => handleSaveChange(props.gemInfo, saved, e)}>
 				{saved ? 'Unsave' : 'Save'}
 			</button>
 		</li>
