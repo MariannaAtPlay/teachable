@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { Route } from 'react-router-dom';
 import * as GemsAPI from './GemsAPI';
 import SearchGems from './SearchGems';
 import './App.css';
@@ -55,8 +56,29 @@ class App extends Component {
 	render() {
 		const { savedGems } = this.state;
 
-		//return <SearchGems savedGems={savedGems} handleSaveChange={this.handleSaveChange} />;
-		return <ListGems gems={savedGems} handleSaveChange={this.handleSaveChange} />;
+		return (
+			<Fragment>
+				<Route
+					exact
+					path="/"
+					render={() => (
+						<SearchGems
+							savedGems={savedGems}
+							handleSaveChange={this.handleSaveChange}
+						/>
+					)}
+				/>
+				<Route
+					path="/saved"
+					render={() => (
+						<ListGems
+							gems={savedGems}
+							handleSaveChange={this.handleSaveChange}
+						/>
+					)}
+				/>
+			</Fragment>
+		);
 	}
 }
 
