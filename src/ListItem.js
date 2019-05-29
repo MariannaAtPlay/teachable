@@ -6,19 +6,20 @@ const SearchResultItem = (props) => {
 
 	return (
 		<li>
-			<a href={project_uri} className="gem">
-				<span className="gem_info">
-					<h2 className="gem_name">
-						{name}
-						<span>{version}</span>
-					</h2>
-					<p>{info}</p>
-					{Number(downloads).toLocaleString('en')}
-				</span>
-			</a>
-			<button onClick={(e) => handleSaveChange(props.gemInfo, saved, e)}>
-				{saved ? 'Unsave' : 'Save'}
-			</button>
+			<div className="gem_info">
+				<a href={project_uri}>
+					<span className="gem_name">{name}</span>
+					(version {version})
+				</a>
+				<button
+					onClick={(e) => handleSaveChange(props.gemInfo, saved, e)}
+					className="button right"
+				>
+					{saved ? 'Unsave' : 'Save'}
+				</button>
+			</div>
+			<p>{info}</p>
+			<p>{Number(downloads).toLocaleString('en')} downloads</p>
 		</li>
 	);
 };

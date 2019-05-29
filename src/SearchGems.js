@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { FaSearch } from 'react-icons/fa';
 import * as GemsAPI from './GemsAPI';
 import ListItem from './ListItem';
 
@@ -47,21 +48,21 @@ class SearchGems extends Component {
 
 		return (
 			<main>
-				<label>
-					Search for Ruby Gems
-					<input
-						type="search"
-						value={query}
-						placeholder="Search Gems..."
-						onChange={this.handleInputChange}
-						aria-label="Search for Ruby Gems"
-					/>
-				</label>
+				<h2> Search for Ruby Gems</h2>
+				<FaSearch className="search_icon" />
+				<input
+					type="search"
+					value={query}
+					placeholder="Search Gems..."
+					onChange={this.handleInputChange}
+					aria-label="Search for Ruby Gems"
+					className="search"
+				/>
 
 				{!localStorageAvailable ? (
 					<h4>
-						Note: LocalStorage is not available, your gems will not be saved after you
-						close this page
+						Note: LocalStorage is not available, your gems will not be saved
+						after you close this page
 					</h4>
 				) : null}
 

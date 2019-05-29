@@ -8,7 +8,7 @@ const ListGems = (props) => {
 		<main>
 			{gems && gems.length > 0 ? (
 				<Fragment>
-					<h3>Your Saved Gems</h3>
+					<h2>Your Saved Gems</h2>
 					<ul>
 						{gems.map((gemInfo) => (
 							<ListItem
