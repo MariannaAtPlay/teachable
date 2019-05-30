@@ -71,9 +71,12 @@ class SearchGems extends Component {
 						<h3>Search Results</h3>
 						<ul>
 							{searchResults.map((gemInfo) => {
-								const saved = savedGems.some((currentGem) => {
-									return currentGem.name === gemInfo.name;
-								});
+								// determone whether this gem had been saved
+								const saved =
+									savedGems &&
+									savedGems.some((currentGem) => {
+										return currentGem.name === gemInfo.name;
+									});
 
 								return (
 									<ListItem
