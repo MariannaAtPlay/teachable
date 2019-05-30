@@ -2,15 +2,15 @@ import React, { Fragment } from 'react';
 import ListItem from './ListItem';
 
 const ListGems = (props) => {
-	const { gems, handleSaveChange, localStorageAvailable } = props;
+	const { savedGems, handleSaveChange, localStorageAvailable } = props;
 
 	return (
 		<main>
-			{gems && gems.length > 0 ? (
+			{savedGems && savedGems.length > 0 ? (
 				<Fragment>
 					<h2>Your Saved Gems</h2>
 					<ul>
-						{gems.map((gemInfo) => (
+						{savedGems.map((gemInfo) => (
 							<ListItem
 								gemInfo={gemInfo}
 								handleSaveChange={handleSaveChange}

@@ -77,7 +77,7 @@ class App extends Component {
 					path="/saved"
 					render={() => (
 						<ListGems
-							gems={savedGems}
+							savedGems={savedGems}
 							handleSaveChange={this.handleSaveChange}
 							localStorageAvailable
 						/>

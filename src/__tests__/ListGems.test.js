@@ -49,7 +49,13 @@ const gems = [
 ];
 
 it('displays a list of gems', () => {
-	const { getAllByText } = render(<ListGems gems={gems} handleSaveChange={() => {}} />);
+	const { getAllByText } = render(
+		<ListGems
+			savedGems={gems}
+			handleSaveChange={() => {}}
+			localStorageAvailable="true"
+		/>
+	);
 
 	const items = getAllByText(/[0-9,]+ downloads/);
 	expect(items).toHaveLength(2);
