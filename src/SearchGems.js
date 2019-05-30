@@ -6,8 +6,7 @@ import ListItem from './ListItem';
 class SearchGems extends Component {
 	state = {
 		query: '',
-		searchResults: [],
-		localStorageAvailable: true
+		searchResults: []
 	};
 
 	handleInputChange = (e) => {
@@ -43,8 +42,8 @@ class SearchGems extends Component {
 	};
 
 	render() {
-		const { query, searchResults, localStorageAvailable } = this.state;
-		const { handleSaveChange, savedGems } = this.props;
+		const { query, searchResults } = this.state;
+		const { handleSaveChange, savedGems, localStorageAvailable } = this.props;
 
 		return (
 			<main>

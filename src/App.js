@@ -9,7 +9,8 @@ import './App.css';
 
 class App extends Component {
 	state = {
-		savedGems: []
+		savedGems: [],
+		localStorageAvailable: true
 	};
 
 	componentDidMount() {
@@ -68,6 +69,7 @@ class App extends Component {
 						<SearchGems
 							savedGems={savedGems}
 							handleSaveChange={this.handleSaveChange}
+							localStorageAvailable
 						/>
 					)}
 				/>
@@ -77,6 +79,7 @@ class App extends Component {
 						<ListGems
 							gems={savedGems}
 							handleSaveChange={this.handleSaveChange}
+							localStorageAvailable
 						/>
 					)}
 				/>

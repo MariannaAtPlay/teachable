@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import ListItem from './ListItem';
 
 const ListGems = (props) => {
-	const { gems, handleSaveChange } = props;
+	const { gems, handleSaveChange, localStorageAvailable } = props;
 
 	return (
 		<main>
@@ -23,6 +23,13 @@ const ListGems = (props) => {
 			) : (
 				<h3>You don't have any gems saved</h3>
 			)}
+
+			{!localStorageAvailable ? (
+				<h4>
+					Note: LocalStorage is not available, your gems will not be saved after
+					you close this page
+				</h4>
+			) : null}
 		</main>
 	);
 };
