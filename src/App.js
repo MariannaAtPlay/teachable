@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import * as GemsAPI from './GemsAPI';
@@ -62,27 +62,29 @@ class App extends Component {
 		return (
 			<Fragment>
 				<Header />
-				<Route
-					exact
-					path="/"
-					render={() => (
-						<SearchGems
-							savedGems={savedGems}
-							handleSaveChange={this.handleSaveChange}
-							localStorageAvailable
-						/>
-					)}
-				/>
-				<Route
-					path="/saved"
-					render={() => (
-						<ListGems
-							savedGems={savedGems}
-							handleSaveChange={this.handleSaveChange}
-							localStorageAvailable
-						/>
-					)}
-				/>
+				<Switch>
+					<Route
+						exact
+						path="/"
+						render={() => (
+							<SearchGems
+								savedGems={savedGems}
+								handleSaveChange={this.handleSaveChange}
+								localStorageAvailable
+							/>
+						)}
+					/>
+					<Route
+						path="/saved"
+						render={() => (
+							<ListGems
+								savedGems={savedGems}
+								handleSaveChange={this.handleSaveChange}
+								localStorageAvailable
+							/>
+						)}
+					/>
+				</Switch>
 				<Footer />
 			</Fragment>
 		);
